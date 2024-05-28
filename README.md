@@ -35,6 +35,5 @@
 ## TBD
 - Character player model - simple ball or maybe a person on a pogo stick
 - CS has knives - what can customization be available for in this game?
-- Name
 
 
