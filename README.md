@@ -1,4 +1,4 @@
-# Breezy-Hop
+# Realm Hop!
 ## Overview
 - Game is split up into sectors called 'rooms'
 - 5 difficulties of 'rooms': Green, yellow, red, black, white & black
@@ -13,7 +13,7 @@
 ## Game modes
 - Two game modes - Classic & Rush
 - Classic: Speed resets when player hits the ground after jumping
-- Rush: Speed doesn't decrease unless player collides with an object AND ground at the same time
+- Rush: Speed doesn't decrease unless player collides with an object AND ground at the same time. Rate of gaining speed is inversely proportional to speed.
 
 ## UI
 **Main Menu**:
