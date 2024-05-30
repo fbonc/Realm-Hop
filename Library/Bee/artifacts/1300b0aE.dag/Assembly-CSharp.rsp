@@ -330,6 +330,10 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/VSSettingsProvider.ref.dll"
+"Assets/FarlandSkies/Demo/Scripts/Player/FPSWalkerEnhanced.cs"
+"Assets/FarlandSkies/Demo/Scripts/Player/SmoothMouseLook.cs"
+"Assets/FarlandSkies/Demo/Scripts/Skybox/SkyboxChanger.cs"
+"Assets/FarlandSkies/Demo/Scripts/Skybox/SkyboxRotator.cs"
 "Assets/Scripts/PlayerController.cs"
 -langversion:8.0
 
