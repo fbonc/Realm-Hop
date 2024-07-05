@@ -36,11 +36,31 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CustomSkyboxCube.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
-     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
-     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\FPSWalkerEnhanced.cs" />
-     <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
+     <Compile Include="Assets\Scripts\RoomController.cs" />
+     <Compile Include="Assets\Scripts\FlipNormals.cs" />
+     <Compile Include="Assets\Packages\Kawaii Slimes\Scripts\AI\EnemyAi.cs" />
+     <Compile Include="Assets\Packages\Kawaii Slimes\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Packages\Kawaii Slimes\Cameras\Scripts\PivotBasedCameraRig.cs" />
+     <Compile Include="Assets\Packages\Kawaii Slimes\Cameras\Scripts\FreeLookCam.cs" />
+     <Compile Include="Assets\Packages\Kawaii Slimes\Cameras\Scripts\AbstractTargetFollower.cs" />
+     <Compile Include="Assets\Packages\Kawaii Slimes\Scripts\AI\Face.cs" />
+     <Compile Include="Assets\Packages\Arkham Interactive\Toony\Skies\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Packages\Arkham Interactive\Toony\Skies\Scripts\Levelloader.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <None Include="Assets\Packages\Kawaii Slimes\Shader\UnityURPToonLitShader\NiloZOffset.hlsl" />
+     <None Include="Assets\Packages\Fantasy Skybox FREE\Readme.txt" />
+     <None Include="Assets\Packages\Kawaii Slimes\Shader\UnityURPToonLitShader\SimpleURPToonLitOutlineExample.shader" />
+     <None Include="Assets\Packages\Kawaii Slimes\Shader\UnityURPToonLitShader\SimpleURPToonLitOutlineExample_LightingEquation.hlsl" />
+     <None Include="Assets\Packages\Fantasy Skybox FREE\ReleaseNotes.txt" />
+     <None Include="Assets\Packages\Kawaii Slimes\Cameras\CameraGuidelines.txt" />
+     <None Include="Assets\Packages\Kawaii Slimes\Shader\Unity-chan Shader Ver 1.2.1\readme.txt" />
+     <None Include="Assets\Packages\Kawaii Slimes\Shader\UnityURPToonLitShader\NiloOutlineUtil.hlsl" />
+     <None Include="Assets\Packages\Kawaii Slimes\Shader\Unity-chan Shader Ver 1.2.1\Unitychan_chara_eye.shader" />
+     <None Include="Assets\Packages\Kawaii Slimes\Shader\UnityURPToonLitShader\NiloInvLerpRemap.hlsl" />
+     <None Include="Assets\Packages\Kawaii Slimes\Shader\UnityURPToonLitShader\SimpleURPToonLitOutlineExample_Shared.hlsl" />
+     <None Include="Assets\Shaders\NewSurfaceShader.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -635,11 +655,8 @@
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
@@ -656,44 +673,47 @@
     <Reference Include="VSSettingsProvider">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/VSSettingsProvider.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+    <Reference Include="Unity.ProBuilder">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Notifications.iOS">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Notifications.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Notifications.Android">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Notifications.Android.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.Editor">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -2,28 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
 
-
+    // CAMERA
+    [SerializeField] GameObject camera;
     int leftFingerId, rightFingerId;
     float halfScreenwidth;
     [SerializeField] float rotateSpeed = 20f;
     bool isRotating;
 
-    Rigidbody rb;
+    CharacterController controller;
 
-    [SerializeField] float jumpHeight = 10f;
-    bool isGrounded;
+    // FORWARDS MOVEMENT
 
     [SerializeField] float moveSpeed;
     [SerializeField] float speedUpRate;
 
-
-
     float standardSpeed;
-    [SerializeField] GameObject camera;
+
+    // JUMPING
+    [SerializeField] float jumpHeight = 1f;
+    Vector3 move;
+    private float gravityValue = 9.81f;
+    private float verticalVelocity;
+
+
+
+
+
 
 
     // Start is called before the first frame update
@@ -34,14 +42,10 @@ public class PlayerController : MonoBehaviour
 
         halfScreenwidth = Screen.width / 2;
 
-        rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
         
         standardSpeed = moveSpeed;
 
-    }
-
-    void OnCollisionStay(){
-        isGrounded = true;
     }
 
 
@@ -66,10 +70,13 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (isGrounded){
+        
+        verticalVelocity -= gravityValue * Time.deltaTime;
+
+        if (controller.isGrounded){
             moveSpeed = standardSpeed;
-            rb.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
-            isGrounded = false;
+            verticalVelocity += Mathf.Sqrt(jumpHeight * 2 * gravityValue);
+            // rb.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
         }
 
 
@@ -78,20 +85,21 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        // Drifting mode
-        // rb.AddForce(camera.transform.forward * moveSpeed);
+
+        // MOVE FORWARDS
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        controller.Move(forward * moveSpeed);
+
+        move = new Vector3(0, 0, 0);
+        move.y = verticalVelocity;
+        controller.Move(move * Time.deltaTime);
+
 
         Debug.Log($"movespeed: {moveSpeed}, standardSpeed: {standardSpeed}");
 
 
     }
 
-    void FixedUpdate(){
-
-        Vector3 forward = new Vector3(camera.transform.forward.x, 0.0f, camera.transform.forward.z);
-        this.transform.Translate(forward * 0.01f * moveSpeed, Space.World);
-
-    }
 
     void GetTouchInput() {
 
