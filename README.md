@@ -5,7 +5,6 @@
 - 'Rooms' are prefabs that appear (animation) when the last 'room' is completed
 - At the start, there is a higher chance of an easier room appearing, but as the game progresses the chance for harder rooms to appear grows
 - Objective is to get through the most rooms possible
-- Character model is a 'blob' called Blobert
 - Skins are variations on Blobert
 
 ## Mechanics
