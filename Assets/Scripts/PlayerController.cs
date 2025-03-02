@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         controller.Move(move * Time.deltaTime);
 
 
-        Debug.Log($"movespeed: {moveSpeed}, standardSpeed: {standardSpeed}");
+        //Debug.Log($"movespeed: {moveSpeed}, standardSpeed: {standardSpeed}");
 
 
     }

@@ -332,17 +332,8 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/Packages/Arkham Interactive/Toony/Skies/Scripts/Levelloader.cs"
 "Assets/Packages/Arkham Interactive/Toony/Skies/Scripts/MouseLook.cs"
-"Assets/Packages/Kawaii Slimes/Cameras/Scripts/AbstractTargetFollower.cs"
-"Assets/Packages/Kawaii Slimes/Cameras/Scripts/FreeLookCam.cs"
-"Assets/Packages/Kawaii Slimes/Cameras/Scripts/PivotBasedCameraRig.cs"
-"Assets/Packages/Kawaii Slimes/Scripts/AI/EnemyAi.cs"
-"Assets/Packages/Kawaii Slimes/Scripts/AI/Face.cs"
-"Assets/Packages/Kawaii Slimes/Scripts/GameManager.cs"
-"Assets/Scripts/CameraFollow.cs"
-"Assets/Scripts/CustomSkyboxCube.cs"
-"Assets/Scripts/FlipNormals.cs"
+"Assets/Scripts/JumpLandTrigger.cs"
 "Assets/Scripts/PlayerController.cs"
-"Assets/Scripts/RoomController.cs"
 -langversion:8.0
 
 /deterministic
