@@ -332,6 +332,8 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/Packages/Arkham Interactive/Toony/Skies/Scripts/Levelloader.cs"
 "Assets/Packages/Arkham Interactive/Toony/Skies/Scripts/MouseLook.cs"
+"Assets/Packages/Polytope Studio/Lowpoly_Demos/Environment_Free/Helpers/PlayerMovement.cs"
+"Assets/Scripts/CameraDistance.cs"
 "Assets/Scripts/JumpLandTrigger.cs"
 "Assets/Scripts/PlayerController.cs"
 -langversion:8.0

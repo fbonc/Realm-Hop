@@ -6,8 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    // CAMERA
-    [SerializeField] GameObject camera;
+
     int leftFingerId, rightFingerId;
     float halfScreenwidth;
     [SerializeField] float rotateSpeed = 20f;
@@ -17,8 +16,9 @@ public class PlayerController : MonoBehaviour
 
     // FORWARDS MOVEMENT
 
-    [SerializeField] float moveSpeed;
+    public float moveSpeed;
     [SerializeField] float speedUpRate;
+    [SerializeField] float slowDownRate;
 
     float standardSpeed;
 
@@ -27,10 +27,6 @@ public class PlayerController : MonoBehaviour
     Vector3 move;
     private float gravityValue = 9.81f;
     private float verticalVelocity;
-
-
-
-
 
 
 
@@ -45,7 +41,6 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         
         standardSpeed = moveSpeed;
-
     }
 
 
@@ -74,16 +69,19 @@ public class PlayerController : MonoBehaviour
         verticalVelocity -= gravityValue * Time.deltaTime;
 
         if (controller.isGrounded){
-            moveSpeed = standardSpeed;
-            verticalVelocity += Mathf.Sqrt(jumpHeight * 2 * gravityValue);
-            // rb.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
+            verticalVelocity = Mathf.Sqrt(jumpHeight * 2 * gravityValue);
+
+            if (!isRotating){
+                moveSpeed -= slowDownRate;
+                if(moveSpeed < standardSpeed) {
+                    moveSpeed = standardSpeed;
+                }
+            } else {
+                moveSpeed += speedUpRate;
+            }
+            
         }
 
-
-        if (isRotating){
-            moveSpeed += speedUpRate;
-
-        }
 
 
         // MOVE FORWARDS

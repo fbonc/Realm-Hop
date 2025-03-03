@@ -4,33 +4,47 @@ using UnityEngine;
 
 public class JumpLandTrigger : MonoBehaviour
 {
-    public float maxDistance = 10.0F;
     public Transform groundCheck;
-    public float groundDistanceThreshold = 0.5F;
+    public float groundDistanceThreshold = 0.35F;
+    private float trueGroundDistanceThreshold;
     public LayerMask groundLayer;
-
     private Animator animator;
+    private Vector3 oldPosition;
+    private bool landAnimationDone = false;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        
+        oldPosition = transform.position;    
     }
 
     void FixedUpdate()
     {
-        Debug.DrawRay(groundCheck.position, Vector3.down * maxDistance, Color.red);
+        Debug.DrawRay(groundCheck.position, Vector3.down * 20, Color.red);
+        RaycastHit debugHit;
+        Physics.Raycast(groundCheck.position, Vector3.down, out debugHit, 20, groundLayer);
+        //Debug.Log("Distance to ground: " + debugHit.distance);
 
-        if (Physics.Raycast(groundCheck.position, Vector3.down, out RaycastHit hit, groundDistanceThreshold, groundLayer))
+
+        Vector3 velocity = transform.position - oldPosition;
+        float verticalVelocity = velocity.y / Time.deltaTime;
+        oldPosition = transform.position;
+
+        // Debug.Log("Current vertical speed: " + verticalVelocity);
+
+        trueGroundDistanceThreshold = 0.40f * groundDistanceThreshold * verticalVelocity * -1;
+        Debug.Log("trueGroundDistancethreshold: " + trueGroundDistanceThreshold);
+
+        RaycastHit hit;
+        if (Physics.Raycast(groundCheck.position, Vector3.down, out hit, trueGroundDistanceThreshold, groundLayer) && verticalVelocity < 0 && !landAnimationDone)
         {
+            landAnimationDone = true;
             animator.SetTrigger("Land");
-            Debug.Log("Distance to ground: " + hit.distance);
         }
-        else
-        {
-            // If no ground is detected within maxDistance
-            Debug.Log("No ground detected within " + maxDistance + " units.");
+
+        if (verticalVelocity > 0) {
+            landAnimationDone = false;
         }
-        
+
     }
 }

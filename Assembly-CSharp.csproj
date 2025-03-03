@@ -37,11 +37,20 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Packages\Arkham Interactive\Toony\Skies\Scripts\Levelloader.cs" />
+     <Compile Include="Assets\Scripts\JumpLandTrigger.cs" />
+     <Compile Include="Assets\Packages\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\PlayerMovement.cs" />
      <Compile Include="Assets\Packages\Arkham Interactive\Toony\Skies\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\JumpLandTrigger.cs" />
+     <Compile Include="Assets\Scripts\CameraDistance.cs" />
+     <None Include="Assets\Packages\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Plants_Shader.shader" />
      <None Include="Assets\Packages\Fantasy Skybox FREE\Readme.txt" />
      <None Include="Assets\Packages\Fantasy Skybox FREE\ReleaseNotes.txt" />
+     <None Include="Assets\Packages\Polytope Studio\Lowpoly_Village\Sources\Shaders\PT_Buildings_Shader_PBR.shader" />
+     <None Include="Assets\Packages\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Opaque_Shader.shader" />
+     <None Include="Assets\Packages\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Foliage_Shader.shader" />
+     <None Include="Assets\Packages\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Water_Shader.shader" />
+     <None Include="Assets\Packages\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Flowers_Shader.shader" />
+     <None Include="Assets\Packages\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Rock_Shader.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2021.1.16f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
