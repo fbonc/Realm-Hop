@@ -5,9 +5,9 @@ using UnityEngine;
 public class JumpLandTrigger : MonoBehaviour
 {
 
-    public Transform groundCheck;
-    public float groundDistanceThreshold = 0.35F;
-    public LayerMask groundLayer;
+    [SerializeField] Transform groundCheck;
+    [SerializeField] float groundDistanceThreshold = 0.55F;
+    [SerializeField] LayerMask groundLayer;
 
     // -----------------------------------------------------------------------------------------
 

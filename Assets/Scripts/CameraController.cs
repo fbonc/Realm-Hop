@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraDistance : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] PlayerController playerController; // for speed
@@ -18,9 +18,26 @@ public class CameraDistance : MonoBehaviour
     [SerializeField] float smoothPitchSpeed = 0.05f;
     [SerializeField] Vector3 lookOffset = new Vector3(0, 0.35f, 0);
 
+    [Header("FOV")]
+    [SerializeField] float startingFieldOfView = 60.0f;
+    [SerializeField] float FOVIncreaseRate = 90f;
+
+    // -----------------------------------------------------------------------------------------
+
+    float baseSpeed;
+
+
+    void Start() {
+        baseSpeed = playerController.moveSpeed;
+    }
+
     void LateUpdate()
     {
         float currentSpeed = playerController.moveSpeed; 
+
+        float fieldOfView = startingFieldOfView + (currentSpeed - baseSpeed) * FOVIncreaseRate;
+
+        Camera.main.fieldOfView = fieldOfView;
         
         Vector3 dynamicOffset = baseOffset;
         dynamicOffset.z = baseOffset.z - (currentSpeed * speedDistanceFactor);
@@ -43,5 +60,6 @@ public class CameraDistance : MonoBehaviour
         
         Quaternion newRotation = Quaternion.Euler(smoothedPitch, targetEuler.y, targetEuler.z);
         transform.rotation = newRotation;
+
     }
 }

@@ -334,6 +334,7 @@
 "Assets/Scripts/CameraController.cs"
 "Assets/Scripts/JumpLandTrigger.cs"
 "Assets/Scripts/PlayerController.cs"
+"Assets/Scripts/SpeedLinesController.cs"
 -langversion:8.0
 
 /deterministic

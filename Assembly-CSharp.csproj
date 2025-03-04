@@ -40,6 +40,7 @@
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Packages\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\SpeedLinesController.cs" />
      <None Include="Assets\Packages\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Plants_Shader.shader" />
      <None Include="Assets\Packages\Fantasy Skybox FREE\Readme.txt" />
      <None Include="Assets\Packages\Fantasy Skybox FREE\ReleaseNotes.txt" />
