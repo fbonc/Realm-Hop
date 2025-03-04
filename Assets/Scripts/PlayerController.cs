@@ -6,64 +6,75 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    [Header("General Movement")]
+    public float rotateSpeed = 150f;
+    [SerializeField] float jumpHeight = 1.5f;
+    public float moveSpeed = 0.08f;
 
+    [Header("Classic Movement")]
+    [SerializeField] float speedUpRate = 0.015f;
+    [SerializeField] float slowDownRate = 0.045f;
+    [SerializeField] float maxSpeed = 0.155f;
+
+
+    [Header("Rush Movement")]
+    public bool rushMode = false;
+    [SerializeField] float rushSpeedUpRate = 0.03f;
+    [SerializeField] float rushSpeedThreshold1 = 0.15f;
+    [SerializeField] float rushSpeedThreshold2 = 0.20f;
+    [SerializeField] float rushSpeedThreshold3 = 0.25f;
+    [SerializeField] float accelerationSlowDownFactor;
+
+    
+    // -----------------------------------------------------------------------------------------
+
+    // TOUCH INPUT
     int leftFingerId, rightFingerId;
     float halfScreenwidth;
-    [SerializeField] float rotateSpeed = 20f;
-    bool isRotating;
-
-    CharacterController controller;
+    enum RotationPriority { None, Left, Right }
+    RotationPriority rotationPriority;
 
     // FORWARDS MOVEMENT
-
-    public float moveSpeed;
-    [SerializeField] float speedUpRate;
-    [SerializeField] float slowDownRate;
-
+    bool isRotating;
+    CharacterController controller;
     float standardSpeed;
+    float speedIncrease;
 
     // JUMPING
-    [SerializeField] float jumpHeight = 1f;
     Vector3 move;
     private float gravityValue = 9.81f;
     private float verticalVelocity;
 
 
-
-    // Start is called before the first frame update
     void Start()
     {
         leftFingerId = -1;
         rightFingerId = -1;
-
+        rotationPriority = RotationPriority.None;
         halfScreenwidth = Screen.width / 2;
 
         controller = GetComponent<CharacterController>();
-        
         standardSpeed = moveSpeed;
+        speedIncrease = rushSpeedUpRate;
     }
 
 
-    // Update is called once per frame
     void Update()
     {
         
         GetTouchInput();
 
-        if (rightFingerId != -1) {
-
-            transform.Rotate(Vector3.up * 1 * rotateSpeed * Time.deltaTime);
+        if (rotationPriority == RotationPriority.Right && rightFingerId != -1) {
+            transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
             isRotating = true;
-
         }
-
-        if (leftFingerId != -1) {
-
-            transform.Rotate(Vector3.up * -1 * rotateSpeed * Time.deltaTime);
+        else if (rotationPriority == RotationPriority.Left && leftFingerId != -1) {
+            transform.Rotate(Vector3.up * -rotateSpeed * Time.deltaTime);
             isRotating = true;
-            
         }
-
+        else {
+            isRotating = false;
+        }
 
         
         verticalVelocity -= gravityValue * Time.deltaTime;
@@ -72,16 +83,36 @@ public class PlayerController : MonoBehaviour
             verticalVelocity = Mathf.Sqrt(jumpHeight * 2 * gravityValue);
 
             if (!isRotating){
-                moveSpeed -= slowDownRate;
-                if(moveSpeed < standardSpeed) {
-                    moveSpeed = standardSpeed;
+                if(!rushMode) {
+                    moveSpeed -= slowDownRate;
+                    if(moveSpeed < standardSpeed) {
+                        moveSpeed = standardSpeed;
+                    }
                 }
+                
             } else {
-                moveSpeed += speedUpRate;
+                if(!rushMode){
+                    moveSpeed += speedUpRate;
+                    if(moveSpeed > maxSpeed) {
+                        moveSpeed = maxSpeed;
+                    }
+                } else {
+                    if (moveSpeed < rushSpeedThreshold1) {
+                        speedIncrease = rushSpeedUpRate;
+                    } else if (moveSpeed < rushSpeedThreshold2) {
+                        speedIncrease = rushSpeedUpRate / accelerationSlowDownFactor;
+                    } else if (moveSpeed < rushSpeedThreshold3) {
+                        speedIncrease = rushSpeedUpRate / Mathf.Pow(accelerationSlowDownFactor, 2);
+                    } else {
+                        speedIncrease = rushSpeedUpRate / Mathf.Pow(accelerationSlowDownFactor, 4.60f);
+                    }
+                    moveSpeed += speedIncrease;
+                }
             }
-            
+ 
         }
 
+        Debug.Log("Movement speed: " + moveSpeed + "\nspeedIncrease: " + speedIncrease);
 
 
         // MOVE FORWARDS
@@ -92,62 +123,59 @@ public class PlayerController : MonoBehaviour
         move.y = verticalVelocity;
         controller.Move(move * Time.deltaTime);
 
-
         //Debug.Log($"movespeed: {moveSpeed}, standardSpeed: {standardSpeed}");
-
 
     }
 
 
     void GetTouchInput() {
 
+        if (Input.touchCount == 0)
+        {
+            leftFingerId = -1;
+            rightFingerId = -1;
+            rotationPriority = RotationPriority.None;
+            return;
+        }
+
         for (int i = 0; i < Input.touchCount; i++) {
 
             Touch t = Input.GetTouch(i);
-
-            switch (t.phase) {
+            switch (t.phase)
+            {
                 case TouchPhase.Began:
-                    if (t.position.x < halfScreenwidth && leftFingerId == -1)
-                    {
+                    if (t.position.x < halfScreenwidth && leftFingerId == -1) {
                         leftFingerId = t.fingerId;
-                        Debug.Log("Tracking left finger");
+                        rotationPriority = RotationPriority.Left;
+                        Debug.Log("Left finger pressed. Priority: Left");
                     }
-                    else if (t.position.x > halfScreenwidth && rightFingerId == -1)
-                    {
+                    
+                    else if (t.position.x > halfScreenwidth && rightFingerId == -1) {
                         rightFingerId = t.fingerId;
-                        Debug.Log("Tracking right finger");
+                        rotationPriority = RotationPriority.Right;
+                        Debug.Log("Right finger pressed. Priority: Right");
                     }
                     break;
 
                 case TouchPhase.Ended:
                 case TouchPhase.Canceled:
 
-                    if (t.fingerId == leftFingerId)
-                    {
+                    if (t.fingerId == leftFingerId) {
                         leftFingerId = -1;
-                        isRotating = false;
-                        Debug.Log("Stopped tracking left finger");
+                        rotationPriority = (rightFingerId != -1) ? RotationPriority.Right : RotationPriority.None;
+                        Debug.Log("Left finger released. New priority: " + rotationPriority);
                     }
 
-                    else if (t.fingerId == rightFingerId)
-                    {
+                    else if (t.fingerId == rightFingerId) {
                         rightFingerId = -1;
-                        isRotating = false;
-                        Debug.Log("Stopped tracking right finger");
+                        rotationPriority = (leftFingerId != -1) ? RotationPriority.Left : RotationPriority.None;
+                        Debug.Log("Right finger released. New priority: " + rotationPriority);
                     }
-                    
                     break;
-
-            
 
             }
 
-
-
-
         }
-
-
         
     }
 }

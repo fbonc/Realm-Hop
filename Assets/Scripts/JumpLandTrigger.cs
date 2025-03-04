@@ -4,19 +4,27 @@ using UnityEngine;
 
 public class JumpLandTrigger : MonoBehaviour
 {
+
     public Transform groundCheck;
     public float groundDistanceThreshold = 0.35F;
-    private float trueGroundDistanceThreshold;
     public LayerMask groundLayer;
+
+    // -----------------------------------------------------------------------------------------
+
+    private float trueGroundDistanceThreshold;
     private Animator animator;
     private Vector3 oldPosition;
     private bool landAnimationDone = false;
-    // Start is called before the first frame update
+
+
+
     void Start()
     {
         animator = GetComponent<Animator>();
         oldPosition = transform.position;    
     }
+
+
 
     void FixedUpdate()
     {
@@ -33,7 +41,7 @@ public class JumpLandTrigger : MonoBehaviour
         // Debug.Log("Current vertical speed: " + verticalVelocity);
 
         trueGroundDistanceThreshold = 0.40f * groundDistanceThreshold * verticalVelocity * -1;
-        Debug.Log("trueGroundDistancethreshold: " + trueGroundDistanceThreshold);
+        // Debug.Log("trueGroundDistancethreshold: " + trueGroundDistanceThreshold);
 
         RaycastHit hit;
         if (Physics.Raycast(groundCheck.position, Vector3.down, out hit, trueGroundDistanceThreshold, groundLayer) && verticalVelocity < 0 && !landAnimationDone)
