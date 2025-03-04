@@ -2,24 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 8
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PT_Buildings_mat
-  m_Shader: {fileID: 4800000, guid: 255b400e6b8ac644588946664da1ff3f, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _GRADIENT_ON
-  - _LOCALWORLDSPACE_ON
-  - _METALICON_ON
-  - _METALLICON_ON
-  - _ONOFF_ON
-  - _SMOOTHNESSON_ON
-  - _SNOW_ON
-  - _TRANSPARENCY_SWITCH_ON
-  - _WORLDOBJECTGRADIENT_ON
+  m_Shader: {fileID: 4800000, guid: c080d20d64d7d404d9b23ab990c2c133, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -41,6 +31,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: f4eb315dde56f204bb13b39760d2f3b1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TextureSample2:
         m_Texture: {fileID: 2800000, guid: 34892be16c52f1948b4b5666052d6bf5, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -59,9 +53,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Brightness: 0.3
     - _Ceramic1smoothness: 0.24
     - _Ceramic2smoothness: 0.247
     - _Ceramic3smoothness: 0.3
+    - _Detail: 0.3
     - _ExteriortextureOnOff: 0
     - _Exteriorwallstiling: 0.133
     - _Float3: 10
@@ -81,6 +77,7 @@ Material:
     - _MetallicOn: 1
     - _OnOff: 1
     - _SmoothnessOn: 1
+    - _Strength: 0.5
     - _Transparency: 1
     - _WorldObjectposition: 0
     - __dirty: 0
@@ -89,6 +86,7 @@ Material:
     - _Ceramictiles2color: {r: 0.20507877, g: 0.017641952, b: 0.015208514, a: 1}
     - _Ceramictiles3color: {r: 0.3679245, g: 0.047693916, b: 0, a: 1}
     - _Coatofarmscolor: {r: 1, g: 0, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Exteriorwalls1colour: {r: 0.68668544, g: 0.5647117, b: 0.30946895, a: 1}
     - _Exteriorwalls2color: {r: 0.68668544, g: 0.5647117, b: 0.30946895, a: 1}
     - _Exteriorwalls3color: {r: 0.68668544, g: 0.5647117, b: 0.30946895, a: 1}
