@@ -37,10 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\JumpLandTrigger.cs" />
+     <Compile Include="Assets\Scripts\SpeedLinesController.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Packages\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\SpeedLinesController.cs" />
      <None Include="Assets\Shaders\Toon.shader" />
      <None Include="Assets\Packages\Simple Toon\Shaders\STOutline.shader" />
      <None Include="Assets\Packages\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Plants_Shader.shader" />
@@ -665,11 +665,20 @@
     <Reference Include="Unity.VisualScripting.State.Editor">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="VSSettingsProvider">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/VSSettingsProvider.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProBuilder">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ProBuilder.Editor">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
@@ -677,17 +686,17 @@
     <Reference Include="UnityEditor.UI">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Rider.Editor">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Notifications.iOS">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Notifications.iOS.dll</HintPath>
@@ -695,11 +704,17 @@
     <Reference Include="Unity.VisualScripting.Core">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -707,26 +722,11 @@
     <Reference Include="Unity.Notifications.Android">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Notifications.Android.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
         <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+    <Reference Include="Unity.VisualScripting.State">
+        <HintPath>C:/Users/felip/Desktop/Projects/Realm-Hop/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

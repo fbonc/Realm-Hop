@@ -55,6 +55,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AmbientCol: 0
     - _BumpScale: 1
@@ -84,9 +85,9 @@ Material:
     - _RimSmooth: 1
     - _RimTolerc: 0.623
     - _Segmented: 1
-    - _ShnIntense: 0.253
+    - _ShnIntense: 0.421
     - _ShnOverlap: 0
-    - _ShnRange: 0.311
+    - _ShnRange: 0.139
     - _ShnSmooth: 1
     - _SmoothnessTextureChannel: 0
     - _SpcIntence: 0
