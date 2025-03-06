@@ -22,7 +22,7 @@ public class SpeedLinesController : MonoBehaviour
         shape = particleSystem.shape;
         shape.radius = startingRadius;
     }
-    void Update()
+    void FixedUpdate()
     {
         float currentSpeed = playerController.moveSpeed;
 

@@ -36,12 +36,12 @@ public class CameraController : MonoBehaviour
         float currentSpeed = playerController.moveSpeed; 
 
         float fieldOfView = startingFieldOfView + (currentSpeed - baseSpeed) * FOVIncreaseRate;
-
         Camera.main.fieldOfView = fieldOfView;
         
         Vector3 dynamicOffset = baseOffset;
         dynamicOffset.z = baseOffset.z - (currentSpeed * speedDistanceFactor);
         
+
         Vector3 targetPosition = player.position + player.rotation * dynamicOffset;
         
         Vector3 currentPos = transform.position;
