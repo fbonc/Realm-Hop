@@ -432,10 +432,12 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.40f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.40f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/Packages/Polytope Studio/Lowpoly_Demos/Environment_Free/Helpers/PlayerMovement.cs"
-"Assets/Scripts/CameraController.cs"
-"Assets/Scripts/JumpLandTrigger.cs"
-"Assets/Scripts/PlayerController.cs"
-"Assets/Scripts/SpeedLinesController.cs"
+"Assets/Scripts/Camera/CameraController.cs"
+"Assets/Scripts/Camera/SpeedLinesController.cs"
+"Assets/Scripts/Movement/JumpLandTrigger.cs"
+"Assets/Scripts/Movement/PlayerController.cs"
+"Assets/Scripts/UI/FPSCounter.cs"
+"Assets/Scripts/UI/MovementSpeed.cs"
 -langversion:9.0
 /deterministic
 /optimize+
