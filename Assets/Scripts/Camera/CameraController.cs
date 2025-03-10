@@ -24,6 +24,7 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] float maxFOV = 80.0f;
     [SerializeField] float FOVIncreaseRate = 60f;
+    [SerializeField] float FOVChangespeed = 10f;
 
     // -----------------------------------------------------------------------------------------
 
@@ -39,8 +40,9 @@ public class CameraController : MonoBehaviour
         float currentSpeed = playerController.moveSpeed; 
         float speedRatio = currentSpeed/baseSpeed - 1;
 
-        float fieldOfView = startingFieldOfView + speedRatio * FOVIncreaseRate;
-        Camera.main.fieldOfView = fieldOfView;
+        float targetFieldOfView = startingFieldOfView + speedRatio * FOVIncreaseRate;
+        Camera.main.fieldOfView = Mathf.MoveTowards(Camera.main.fieldOfView, targetFieldOfView, FOVChangespeed * Time.deltaTime);
+
         if (Camera.main.fieldOfView > maxFOV) {
             Camera.main.fieldOfView = maxFOV;
         }

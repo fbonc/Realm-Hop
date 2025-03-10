@@ -438,6 +438,7 @@
 "Assets/Scripts/Movement/PlayerController.cs"
 "Assets/Scripts/UI/FPSCounter.cs"
 "Assets/Scripts/UI/MovementSpeed.cs"
+"Assets/Scripts/UI/QualityController.cs"
 -langversion:9.0
 /deterministic
 /optimize+
